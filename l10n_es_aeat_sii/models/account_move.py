@@ -172,7 +172,7 @@ class AccountMove(models.Model):
                 description = header_purchase
             if method_desc == 'auto':
                 for line in invoice.invoice_line_ids:
-                    description += line.name + ' - '
+                    description += line.name and line.name + ' - ' or ''
                 invoice.sii_description = description
 
     @api.model
